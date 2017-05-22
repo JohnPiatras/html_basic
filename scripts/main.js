@@ -21,3 +21,24 @@ myImage.onclick = function() {
       myImage.setAttribute ('src','images/odin-icon2.jpeg');
     }
 }
+
+
+var myButton = document.querySelector('button');
+var myHeading = document.querySelector('h1');
+
+function setUserName() {
+  var myName = prompt('Please enter your name.');
+  localStorage.setItem('name', myName);
+  myHeading.textContent = 'The Odin Project is awesome, ' + myName;
+}
+
+if(!localStorage.getItem('name')) {
+  setUserName();
+} else {
+  var storedName = localStorage.getItem('name');
+  myHeading.textContent = 'The odin Project is awesome, ' + storedName;
+}
+
+myButton.onclick = function() {
+  setUserName();
+}
